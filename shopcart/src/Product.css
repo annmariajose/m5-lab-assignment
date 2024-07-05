@@ -1,0 +1,13 @@
+.title{
+  font-size: 1.35em;
+}
+
+.product>img{
+  width: 10em;
+}
+
+input{
+  width: 4em;
+  height: 3em;
+  border: 0.2em solid lightgray;
+}
