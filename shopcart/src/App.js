@@ -1,11 +1,13 @@
 import './App.css';
 import Product from './Product';
+import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function App() {
-  const productData = [
+  const [count, setCount] = useState(0);
+  const [productData] = useState([
     {
       name: "Unisex Cologne",
       value: 0,
@@ -26,7 +28,17 @@ function App() {
       value: 0,
       imageSrc: "./products/wallet.jpg"
     }
-  ];
+  ]);
+
+  function OnChange(event) {
+    productData[event.target.id].value = event.target.value;
+    let sum = Number(productData[0].value);
+
+    for (let i = 1; i < productData.length; i++) {
+      sum += Number(productData[i].value);
+    }
+    setCount(sum);
+  }
 
   return (
     <div className="App">
@@ -34,10 +46,10 @@ function App() {
         <h2>Shop to React</h2>
         <div className='d-inline-flex align-items-center'>
           <FontAwesomeIcon className='m-3' icon={faShoppingCart} />
-          <p className='mt-3'>0 items</p>
+          <p className='mt-3'>{count} items</p>
         </div>
       </header>
-      <Product productData={productData}/>
+      <Product productData={productData} OnChange={OnChange}/>
     </div>
   );
 }
