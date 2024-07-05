@@ -1,4 +1,3 @@
-import './App.css';
 import Product from './Product';
 import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -30,19 +29,18 @@ function App() {
     }
   ]);
 
+  //update props values when changing input fields
   function OnChange(event) {
     productData[event.target.id].value = event.target.value;
-    let sum = Number(productData[0].value);
-
-    for (let i = 1; i < productData.length; i++) {
-      sum += Number(productData[i].value);
-    }
-    setCount(sum);
+    const sumOfCartItems = productData.reduce(
+      (accumulator, currentValue) => accumulator + Number(currentValue.value), 0,
+    );
+    setCount(sumOfCartItems);
   }
 
   return (
     <div className="App">
-      <header className="App-header p-5 py-4 bg-info text-black d-flex flex-row justify-content-between align-items-center">
+      <header className="sticky-top p-5 py-4 bg-info text-black d-flex flex-row justify-content-between align-items-center">
         <h2>Shop to React</h2>
         <div className='d-inline-flex align-items-center'>
           <FontAwesomeIcon className='m-3' icon={faShoppingCart} />
