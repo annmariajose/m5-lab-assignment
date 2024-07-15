@@ -6,6 +6,17 @@
   width: 10em;
 }
 
+button {
+  background-color: #737373;
+  border: none;
+  width: 3em;
+  height: 2.5em;
+}
+
+button > FontAwesomeIcon {
+  width: 3em;
+}
+
 input{
   width: 4em;
   height: 3em;

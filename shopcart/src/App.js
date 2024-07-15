@@ -6,12 +6,27 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function App() {
-  const [cartCount, setCount] = useState(0);
+  let [cartCount, setCount] = useState(0);
   const [productData] = useState(ProductData.products);
+
+  const HandleProductAdd = (event) => {
+    ++productData[event.target.id].value;
+    setCount(++cartCount);
+  };
+
+  const HandleProductSubtract = (event) => {
+    if (productData[event.target.id].value > 0) {
+      --productData[event.target.id].value;
+      setCount(--cartCount);
+    }
+  };
 
   //update props values when changing input fields
   function OnChange(event) {
-    productData[event.target.id].value = event.target.value;
+    if (event.target.value < 0) {
+      event.target.value = 0;
+    }
+    productData[event.target.id].value = Math.floor(event.target.value);
     const sumOfCartItems = productData.reduce(
       (accumulator, currentValue) => accumulator + Number(currentValue.value), 0,
     );
@@ -27,7 +42,12 @@ function App() {
           <p className='mt-3'>{cartCount} items</p>
         </div>
       </header>
-      <DisplayProducts productData={productData} OnChange={OnChange}/>
+      <DisplayProducts
+        productData={productData} 
+        OnChange={OnChange} 
+        HandleProductAdd={HandleProductAdd}
+        HandleProductSubtract={HandleProductSubtract}
+      />
     </div>
   );
 }
