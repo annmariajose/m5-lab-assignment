@@ -16,9 +16,9 @@ function DisplayProducts(props) {
   };
 
   return (
-    <div>
+    <div className='bg-white'>
       {props.productData.map((product, index) =>
-        <div className="productContainer mt-3" key={index}>
+        <div className="productContainer pt-3" key={index}>
           <h3 className='title px-5 mx-3'>{product.title}</h3>
           <div className='product d-inline-flex align-items-start mx-5'>
             <img

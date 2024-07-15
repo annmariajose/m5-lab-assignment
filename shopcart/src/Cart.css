@@ -1,0 +1,11 @@
+.cartContainer {
+  padding: 3em 10em 0 6em;
+}
+
+img{
+  width: 10em;
+}
+
+.quantity {
+  font-weight: 800;
+}
