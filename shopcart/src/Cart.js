@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import './Cart.css';
 
-function DisplayProducts(props) {
+function Cart(props) {
   let cartEmpty = false;
   if (props.cartCount === 0) {
     cartEmpty = true;
@@ -38,4 +38,4 @@ function DisplayProducts(props) {
   );
 }
 
-export default DisplayProducts;
+export default Cart;

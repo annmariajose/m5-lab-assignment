@@ -1,4 +1,3 @@
-import DisplayProducts from './DisplayProducts';
 import Navbar from "./Navbar";
 import './App.css';
 import React, { useState } from 'react';
