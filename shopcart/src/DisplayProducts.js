@@ -1,8 +1,8 @@
-import './Product.css';
+import './DisplayProducts.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function Product(props) {
-  const products = props.productData.map((item, index) =>
+function DisplayProducts(props) {
+  const displayProducts = props.productData.map((item, index) =>
     <div className="productContainer mt-3" key={index}>
       <h3 className='title px-5 mx-3'>{item.name}</h3>
       <div className='product d-inline-flex align-items-center mx-5'>
@@ -17,9 +17,9 @@ function Product(props) {
   );
   return (
     <div>
-      {products}
+      {displayProducts}
     </div>
   );
 }
 
-export default Product;
+export default DisplayProducts;

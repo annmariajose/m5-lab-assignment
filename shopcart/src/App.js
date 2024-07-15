@@ -1,4 +1,4 @@
-import Product from './Product';
+import DisplayProducts from './DisplayProducts';
 import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
@@ -47,7 +47,7 @@ function App() {
           <p className='mt-3'>{count} items</p>
         </div>
       </header>
-      <Product productData={productData} OnChange={OnChange}/>
+      <DisplayProducts productData={productData} OnChange={OnChange}/>
     </div>
   );
 }
