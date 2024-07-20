@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import './Cart.css';
-import { Button } from "bootstrap";
 
 function Cart(props) {
   let cartEmpty = false;
