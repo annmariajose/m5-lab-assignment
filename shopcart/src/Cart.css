@@ -9,3 +9,7 @@ img{
 .quantity {
   font-weight: 800;
 }
+
+.checkoutButton {
+  width: 100px;
+}
