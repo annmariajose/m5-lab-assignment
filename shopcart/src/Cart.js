@@ -1,3 +1,4 @@
+import {useNavigate} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './Cart.css';
 
@@ -5,6 +6,10 @@ function Cart(props) {
   let cartEmpty = false;
   if (props.cartCount === 0) {
     cartEmpty = true;
+  }
+  const navigate = useNavigate();
+  const goToLoginPage = () => {
+    navigate("/login");
   }
   return (
     <div className='cartContainer bg-white'>
@@ -34,7 +39,7 @@ function Cart(props) {
             : <div></div>
         }
       )}
-      <button className='checkoutButton mt-4 rounded bg-primary text-white'>
+      <button className='checkoutButton mt-4 rounded bg-primary text-white' onClick={goToLoginPage}>
         Check Out
       </button>
     </div>

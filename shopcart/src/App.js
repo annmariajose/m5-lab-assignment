@@ -7,6 +7,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   let [cartCount, setCount] = useState(0);
   const [productData] = useState(ProductData.products);
+  const [login, setLogin] = useState(false);
+  const [facebookData, setFacebookData] = useState({}); //set up fb data
+  const [profilePicture, setProfilePicture] = useState('');
 
   const HandleProductAdd = (event) => {
     ++productData[event.target.id].value;
@@ -17,6 +20,17 @@ function App() {
     if (productData[event.target.id].value > 0) {
       --productData[event.target.id].value;
       setCount(--cartCount);
+    }
+  };
+
+  const HandleFacebookLogin = (response) => {
+    console.log(response);
+    setFacebookData(response);
+    setProfilePicture(response.picture.data.url);
+    if (response.accessToken) {
+      setLogin(true);
+    } else {
+      setLogin(false);
     }
   };
 
@@ -36,10 +50,14 @@ function App() {
     <div className="App">
       <Navbar 
         cartCount={cartCount}
-        productData={productData} 
+        login={login}
+        productData={productData}
+        facebookData={facebookData}
+        profilePicture={profilePicture}
         OnChange={OnChange} 
         HandleProductAdd={HandleProductAdd}
         HandleProductSubtract={HandleProductSubtract}
+        HandleFacebookLogin={HandleFacebookLogin}
       />
     </div>
   );

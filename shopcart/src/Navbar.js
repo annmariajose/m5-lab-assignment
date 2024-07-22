@@ -2,6 +2,7 @@ import { Link, BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DisplayProducts from "./DisplayProducts";
+import Login from "./Login";
 import Cart from "./Cart";
 
 function Navbar(props) {
@@ -46,6 +47,15 @@ function Navbar(props) {
             <Cart
                 productData={props.productData}
                 cartCount={props.cartCount}
+            />
+          } />
+          <Route path="/login" element={
+            <Login
+                login={props.login}
+                cartCount={props.cartCount}
+                facebookData={props.facebookData}
+                profilePicture={props.profilePicture}
+                HandleFacebookLogin={props.HandleFacebookLogin}
             />
           } />
         </Routes>
