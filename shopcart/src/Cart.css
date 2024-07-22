@@ -11,5 +11,9 @@ img{
 }
 
 .checkoutButton {
-  width: 100px;
+  width: 7em;
+}
+
+.continueShopButton {
+  width: 9em;
 }

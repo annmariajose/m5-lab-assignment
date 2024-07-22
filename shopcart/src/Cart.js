@@ -11,13 +11,16 @@ function Cart(props) {
   const goToLoginPage = () => {
     navigate("/login");
   }
+  const goToHome = () => {
+    navigate("/");
+  }
   return (
     <div className='cartContainer bg-white'>
       <h2>Your Cart Items</h2>
       {
       cartEmpty ? 
-        <div className="p-2 text-danger">
-          <p>Your cart is empty. Please add items to view them here.</p>
+        <div>
+          <p>There are 0 items in your cart.</p>
         </div> :
           props.productData.map((product, index) => {
             return product.value > 0 ?
@@ -39,9 +42,15 @@ function Cart(props) {
             : <div></div>
         }
       )}
-      <button className='checkoutButton mt-4 rounded bg-primary text-white' onClick={goToLoginPage}>
-        Check Out
-      </button>
+      {
+      cartEmpty ? 
+        <button className='continueShopButton mt-4 rounded bg-success text-white' onClick={goToHome}>
+          Continue Shop
+        </button> :
+        <button className='checkoutButton mt-4 rounded bg-primary text-white' onClick={goToLoginPage}>
+          Check Out
+        </button>
+      }
     </div>
   );
 }
